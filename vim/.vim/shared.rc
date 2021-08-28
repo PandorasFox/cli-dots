@@ -1,0 +1,75 @@
+set hidden
+set number
+set relativenumber
+
+set tabstop=2
+set shiftwidth=2
+set softtabstop=2
+set expandtab
+set smartindent
+set nopaste
+syntax on
+set nowrap
+set whichwrap+=<,>,h,l,[,]
+set pastetoggle=<F2>
+set laststatus=2
+set ignorecase
+set infercase
+set timeoutlen=500
+set showcmd
+set t_Co=256
+set colorcolumn=80
+
+nnoremap <Tab> :bnext<CR>
+nnoremap <S-Tab> :bprevious<CR>
+
+" nvim term settings "
+set splitbelow
+set splitright
+
+let g:monokai_term_italic = 1
+let g:monokai_gui_italic = 1
+
+
+colorscheme base16-pandora
+"hi Normal ctermbg=none"
+"hi LineNr ctermbg=none"
+"hi NonText ctermbg=none"
+"hi Pmenu ctermfg=231 ctermbg=236 "
+"hi cFormat ctermfg=141"
+"hi cSpecial ctermfg=141"
+"hi Comment ctermfg=7"
+
+call plug#begin('~/.vim/plugged')
+" https://github.com/vim-airline/vim-airline "
+Plug 'vim-airline/vim-airline'
+call plug#end()
+
+" use the same Python 3 as python3-nvim "
+let g:python3_host_prog='/usr/bin/python3'
+" same for Python 2 "
+let g:python_host_prog='/usr/bin/python2'
+
+let g:cscope_map_keys = 1
+
+" airline stuff "
+
+let g:airline_powerline_fonts = 1
+let g:airline#extensions#tabline#enabled = 1
+let g:airline_theme = 'base16_pandora'
+let g:airline#extensions#whitespace#mixed_indent_algo = 1
+let g:airline#extensions#syntastic#enabled = 1
+
+let g:airline_section_b = '%{substitute(getcwd(), $HOME, "~", "")}'
+"let g:airline_section_c = '%t' "
+
+let &t_SI = "\<Esc>[6 q"
+let &t_SR = "\<Esc>[4 q"
+let &t_EI = "\<Esc>[2 q"
+
+set mouse=a
+map <ScrollWheelUp> 5k
+map <S-ScrollWheelUp> <C-U>
+map <ScrollWheelDown> 5j
+map <S-ScrollWheelDown> <C-D>
+map <LeftMouse> <nop>
